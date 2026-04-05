@@ -1,4 +1,4 @@
-# Medicine-Detection-for-Medical-Assistant-AMR $ Hardware-Optimization
+# Medicine-Detection-for-Medical-Assistant-AMR & Hardware-Optimization
 This project focuses on the development and optimization of a computer vision system for a Medical Assistance Autonomous Mobile Robot (AMR). The primary goal is to achieve real-time medicine recognition and patient monitoring by leveraging hardware acceleration on Intel integrated GPUs (iGPU).
 
 ---
@@ -16,9 +16,9 @@ This project focuses on the development and optimization of a computer vision sy
 
 | Model Strategy            | Device | mAP50 (Accuracy) | Latency (ms) | Throughput (FPS) |
 | ------------------------- | ------ | ---------------- | ------------ | ---------------- |
-| Baseline PyTorch (FP32)   | CPU    | 0.9905            | ~84.80 ms   | ~11.79            |
-| OpenVINO Optimized (INT8) | CPU    | 0.9898            | ~40.74 ms     | ~24.54           |
-| OpenVINO + iGPU (INT8)    | iGPU   | 0.9898            | ~22.51 ms     | ~44.43            |
+| Baseline PyTorch (FP32)   | CPU    | 0.9905            | ~84.80 ms   | ~11.79           |
+| OpenVINO Optimized (INT8) | CPU    | 0.9898            | ~40.74 ms   | ~24.54           |
+| OpenVINO + iGPU (INT8)    | iGPU   | 0.9898            | ~22.51 ms   | ~44.43           |
 
 ---
 ##  Optimization Workflow
@@ -35,7 +35,7 @@ To maximize throughput on edge hardware, I applied **INT8 Quantization** using t
 * **Goal:** Reduce model precision from FP32 to INT8 to decrease memory bandwidth and speed up computation.
 * **Result:** Achieved a **~54% reduction** in latency with a negligible accuracy drop (only **0.48%**).
 
-### 3. Hardware Acceleration (iGPU Offloading)
+### 3. Hardware Acceleration (iGPU)
 Most standard laptops/AMR controllers struggle with CPU-only inference. I optimized the system to offload the heavy AI workload to the **Intel® UHD Graphics 630 (iGPU)**
 
 ### 4. Performance Validation

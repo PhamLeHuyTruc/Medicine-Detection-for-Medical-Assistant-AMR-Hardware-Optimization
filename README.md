@@ -12,13 +12,13 @@ This project focuses on the development and optimization of a computer vision sy
 - Hardware: Optimized for Intel UHD Graphics 630 (on Dell Precision 7530).
 
 
-##  Benmark & Evaluation
+##  Benchmark & Evaluation
 
 | Model Strategy            | Device | mAP50 (Accuracy) | Latency (ms) | Throughput (FPS) |
 | ------------------------- | ------ | ---------------- | ------------ | ---------------- |
-| Baseline PyTorch (FP32)   | CPU    | 0.9905            | ~84.80 ms   | ~11.79           |
-| OpenVINO Optimized (INT8) | CPU    | 0.9898            | ~40.74 ms   | ~24.54           |
-| OpenVINO + iGPU (INT8)    | iGPU   | 0.9898            | ~22.51 ms   | ~44.43           |
+| Baseline PyTorch (FP32)   | CPU    | 0.9905           | ~84.80       | ~11.79           |
+| OpenVINO Optimized (INT8) | CPU    | 0.9898           | ~40.74       | ~24.54           |
+| OpenVINO + iGPU (INT8)    | iGPU   | 0.9898           | ~22.51       | ~44.43           |
 
 ---
 ##  Optimization Workflow

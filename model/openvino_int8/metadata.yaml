@@ -1,0 +1,25 @@
+description: Ultralytics YOLO11n model trained on /content/medical-5/data.yaml
+author: Ultralytics
+date: '2026-04-04T12:11:31.088923'
+version: 8.4.33
+license: AGPL-3.0 License (https://ultralytics.com/license)
+docs: https://docs.ultralytics.com
+stride: 32
+task: detect
+batch: 1
+imgsz:
+- 640
+- 640
+names:
+  0: chieu
+  1: sang
+  2: toi
+args:
+  batch: 1
+  fraction: 1.0
+  half: false
+  int8: true
+  dynamic: false
+  nms: false
+channels: 3
+end2end: false

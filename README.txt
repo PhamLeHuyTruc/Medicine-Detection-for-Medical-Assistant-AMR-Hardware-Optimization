@@ -1,0 +1,4 @@
+YOLOv11
+OpenVINO
+INT8
+iGPU

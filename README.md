@@ -1,24 +1,27 @@
 # Medicine-Detection-for-Medical-Assistant-AMR & Hardware-Optimization
-This project focuses on the development and optimization of a computer vision system for a Medical Assistance Autonomous Mobile Robot (AMR). The primary goal is to achieve real-time medicine recognition and patient monitoring by leveraging hardware acceleration on Intel integrated GPUs (iGPU).
+This project focuses on the development and optimization of a computer vision system for a Medical Assistance Autonomous Mobile Robot. The primary goal is to achieve real-time medicine recognition and patient monitoring by leveraging hardware acceleration on Intel integrated GPUs (iGPU).
 
 ---
 ## Key Performance Highlights
-- Architecture: YOLOv11 (Ultralytics) trained for medical object detection.
+- Architecture: YOLOv11 trained for medical object detection.
 
 - Optimization Engine: Intel OpenVINO Toolkit.
 
-- Quantization: FP32 to INT8 (Bit-depth reduction for massive speedup).
+- Quantization: FP32 to INT8 .
 
 - Hardware: Optimized for Intel UHD Graphics 630 (on Dell Precision 7530).
 
 
 ##  Benchmark & Evaluation
+### Table
 
 | Model Strategy            | Device | mAP50 (Accuracy) | Latency (ms) | Throughput (FPS) |
 | ------------------------- | ------ | ---------------- | ------------ | ---------------- |
 | Baseline PyTorch (FP32)   | CPU    | 0.9905           | ~84.80       | ~11.79           |
 | OpenVINO Optimized (INT8) | CPU    | 0.9898           | ~40.74       | ~24.54           |
 | OpenVINO + iGPU (INT8)    | iGPU   | 0.9898           | ~22.51       | ~44.43           |
+### Chart
+<img width="600" height="378" alt="image" src="https://github.com/user-attachments/assets/d5030ac7-2052-47c6-8619-aac32d9bcec0" />
 
 ---
 ##  Optimization Workflow
@@ -28,10 +31,10 @@ To ensure the Medical Assistant AMR can recognize medications in real-time with 
 ### 1. Model Training & Preparation
 * **Architecture:** Trained a custom **YOLOv11** model specifically for medical items (medicine boxes, pill bottles, and medical tools).
 * **Dataset:** Curated a high-quality dataset with medical-grade labels.
-* **Export:** Converted the baseline PyTorch model (`.pt`) to the OpenVINO Intermediate Representation (IR) format.
+* **Export:** Converted the baseline PyTorch model (.pt) to the OpenVINO Intermediate Representation (IR) format.
 
 ### 2. INT8 Quantization 
-To maximize throughput on edge hardware, I applied **INT8 Quantization** using the OpenVINO NNCF (Neural Network Compression Framework):
+To maximize throughput on edge hardware, I applied **INT8 Quantization** using the OpenVINO NNCF:
 * **Goal:** Reduce model precision from FP32 to INT8 to decrease memory bandwidth and speed up computation.
 * **Result:** Achieved a **~54% reduction** in latency with a negligible accuracy drop (only **0.48%**).
 
@@ -52,7 +55,15 @@ I utilized a dual-metric validation approach:
 - Tools: Intel OpenVINO Benchmark App, TensorBoard
 
 - Robotics: ROS 2 (SLAM & Nav2)
+## Real-Time Detection Results on Intel iGPU
+- Multi-object detection under different orientations and lighting conditions
+- Stable real-time performance (~30–40 FPS) on Intel UHD 630 iGPU
+---
+<img width="400" height="319" alt="image" src="https://github.com/user-attachments/assets/c4c08dd7-54e1-468f-b3d1-73b1b936b773" /> <img width="400" height="319" alt="image" src="https://github.com/user-attachments/assets/93bdacf2-3b1e-49db-bcce-18dfe8504454" />
+
+
 ## Conclusion
 Through systematic optimization, this project demonstrates that high-performance AI perception is achievable on standard workstation hardware without the need for discrete NVIDIA GPUs. This significantly reduces the power consumption and cost of the Medical AMR while maintaining "Real-Time" responsiveness.
+
 
 
